@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			//  2.写一个Test插件，要求外部可以传入自定义配置对象，如果没有传入，则需要进行容错处理
+			//   实例化对象身上有以下属性：
+			//    width , height , backgroundColor,
+			//   有init方法，一旦调用方法，则可以将实例挂在到页面上
+			setTimeout(() => {
+				(function () {
+					function Test(options) {
+						options = options || {};
+						this.width = options.width || 200;
+						this.height = options.height || 200;
+						this.backgroundColor = options.backgroundColor || "red";
+					}
+					Test.prototype.init = function () {
+						var div = document.createElement("div");
+						div.style.width = this.width + "px";
+						div.style.height = this.height + "px";
+						div.style.backgroundColor = this.backgroundColor;
+						document.body.appendChild(div);
+					};
+					window.Test = Test;
+				})();
+				var test = new Test();
+				test.init();
+			}, 3000);
+		</script>
+	</body>
+</html>
