@@ -12,39 +12,12 @@
 		<div id="map"></div>
 
 		<script>
-			(function () {
-				var Food = function (options) {
-					// 进行容错处理，如果外部没有传，就默认为空对象，否则会报错
-					options = options || {};
-					// 设置属性
-					this.x = options.x || 0;
-					this.y = options.y || 0;
-					this.width = options.width || 20;
-					this.height = options.height || 20;
-					this.color = options.color || "orange";
-					this.position = options.position || "absolute";
-				};
-				// 设置方法
-				Food.prototype.render = function (map) {
-					// 创建一个div，并且将实例身上的属性设置为div的样式，最终将div放在地图中
-					var div = document.createElement("div");
-					div.style.backgroundColor = this.color;
-					div.style.width = this.width + "px";
-					div.style.height = this.height + "px";
-					div.style.top = this.y + "px";
-					div.style.left = this.x + "px";
-					div.style.position = this.position;
-					map.appendChild(div);
-				};
-				wiodow.Food = Food;
-			})();
-			var oMap = document.getElementById("map");
-			var food = new Food();
-			// 别忘了调用方法，函数
+			var a = 10;
+			console.log(window.a);
+			let b = 20;
+			console.log(window.b);
+			const c = 30;
+			console.log(window.c);
 		</script>
-		<script src="./utils.js"></script>
-		<script src="./index.js"></script>
-		<script src="./snake.js"></script>
-		<script src="./game.js"></script>
 	</body>
 </html>
